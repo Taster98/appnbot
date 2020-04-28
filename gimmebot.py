@@ -26,9 +26,9 @@ def on_chat_message(msg):
 
                         txtt = (txtt[0:lun]).upper()
                         bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-                if(msg["text"].startswith("!pwndlg")):
+                if(msg["text"].startswith(config.getPower())):
                         taxt = msg["text"]
-                        taxt = taxt.split('!pwndlg')[1]
+                        taxt = taxt.split(config.getPower())[1]
                         taxt = taxt.upper()
                         bot.sendMessage("-1001123977184",taxt)
                 if(msg["text"]=="/help@reviubot"):
