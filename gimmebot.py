@@ -4,13 +4,13 @@ import telepot
 from forex_python.converter import CurrencyRates
 c = CurrencyRates()
 
-#Questa roba serve per farlo funzionare su PythonEverywhere
+"""#Questa roba serve per farlo funzionare su PythonEverywhere
 proxy_url = "http://proxy.server:3128"
 telepot.api._pools = {
     'default': urllib3.ProxyManager(proxy_url=proxy_url, num_pools=3, maxsize=10, retries=False, timeout=30),
 }
 telepot.api._onetime_pool_spec = (urllib3.ProxyManager, dict(proxy_url=proxy_url, num_pools=1, maxsize=1, retries=False, timeout=30))
-#Fine roba brutta, ugh
+#Fine roba brutta, ugh"""
 
 #Questa funzione serve per gestire un qualsiasi messaggio ricevuto
 def on_chat_message(msg):
