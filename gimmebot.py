@@ -1,9 +1,10 @@
 # coding=utf-8
 import telepot
+import requests
+import config
+from telepot.loop import MessageLoop
+from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
 #import urllib3
-
-from forex_python.converter import CurrencyRates
-c = CurrencyRates()
 
 """#Questa roba serve per farlo funzionare su PythonEverywhere
 proxy_url = "http://proxy.server:3128"
@@ -15,8 +16,17 @@ telepot.api._onetime_pool_spec = (urllib3.ProxyManager, dict(proxy_url=proxy_url
 
 #Questa funzione serve per gestire un qualsiasi messaggio ricevuto
 def on_chat_message(msg):
+        # Link dal quale estraggo il cambio aggiornato
+        url = "https://prime.exchangerate-api.com/v5/"+config.getForex()+"/latest/USD"
+        
+        # Ricevo il json e estraggo in particolare la conversione DOLLAR/EUR, che è quella che mi serve
+        response = requests.get(url)
+        cambio = response.json()
+        dollar_to_eur = cambio["conversion_rates"]["EUR"]
+        dollar_to_eur = float(dollar_to_eur)
         content_type, chat_type, chat_id = telepot.glance(msg)
         if content_type == 'text':
+                keyboard = ReplyKeyboardMarkup(keyboard=[['Valuta'],['Reviu'],['Task U/O belli'],['Images'],['Roba da 1'], ['Roba da 2'],['Help'],])
                 #In questo If schifoso aggiungo le parole chiave a cui il bot deve interagire
                 if(msg["text"].startswith("!")):
                         txtt = msg["text"]
@@ -26,29 +36,29 @@ def on_chat_message(msg):
                                 lun = 128
 
                         txtt = (txtt[0:lun]).upper()
-                        bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+                        bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant",reply_markup=keyboard)
                 if(msg["text"].startswith(config.getPower())):
                         taxt = msg["text"]
                         taxt = taxt.split(config.getPower())[1]
                         taxt = taxt.upper()
                         bot.sendMessage("-1001123977184",taxt)
-                if(msg["text"]=="/help@reviubot"):
-                        bot.sendMessage(chat_id,"Mi hanno aggiornato aggiungendomi questi comandi molto fighi, per velocizzare il tutto. Puoi anche vedere la valuta euro dollaro.")
-                if(msg["text"]=="/reviu@reviubot"):
-                        bot.sendMessage(chat_id,"SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-		if(msg["text"]=="/uno@reviubot"):
-                        bot.sendMessage(chat_id,"SONO PRESENTI ROBE DA 1 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-		if(msg["text"]=="/due@reviubot"):
-                        bot.sendMessage(chat_id,"SONO PRESENTI ROBE DA 2 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-		if(msg["text"]=="/uo@reviubot"):
-                        bot.sendMessage(chat_id,"SONO PRESENTI UPSETTING/OFFENSIVE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-		if(msg["text"]=="/image@reviubot"):
-                        bot.sendMessage(chat_id,"SONO PRESENTI IMAGE BELLISSIME \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
-		if(msg["text"]=="/valuta@reviubot"):
-			bot.sendMessage(chat_id,"Attualmente, 1 dollaro = "+str(round(c.get_rate('USD','EUR'),2))+" euro.\nPer PayPal invece, da bravo monellone, \n1 dollaro = "+str(round((c.get_rate('USD','EUR')-(c.get_rate('USD','EUR')*2.5)/100),2))+" euro.")
+                if(msg["text"]=="Help"):
+                        bot.sendMessage(chat_id,"❔ Mi hanno aggiornato raga, ora il tasso euro dollaro funge perfettamente, e ho dei bottoni stupe.")
+                if(msg["text"]=="Reviu"):
+                        bot.sendMessage(chat_id,"🆘 SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+		if(msg["text"]=="Roba da 1"):
+                        bot.sendMessage(chat_id,"1️⃣ SONO PRESENTI ROBE DA 1 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+		if(msg["text"]=="Roba da 2"):
+                        bot.sendMessage(chat_id,"2️⃣ SONO PRESENTI ROBE DA 2 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+		if(msg["text"]=="Task U/O belli"):
+                        bot.sendMessage(chat_id,"🔞 SONO PRESENTI UPSETTING/OFFENSIVE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+		if(msg["text"]=="Images"):
+                        bot.sendMessage(chat_id,"🌄 SONO PRESENTI IMAGE BELLISSIME \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant")
+		if(msg["text"]=="Valuta"):
+			bot.sendMessage(chat_id,"💸 Attualmente, 1 dollaro = "+str("%0.2f" % dollar_to_eur)+" euro.\nPer PayPal invece, da bravo monellone, \n1 dollaro = "+str("%0.2f" % (dollar_to_eur-(dollar_to_eur*2.5)/100))+" euro.")
+                        
 
 
-import config
 TOKEN = config.getToken()
 
 bot = telepot.Bot(TOKEN)
