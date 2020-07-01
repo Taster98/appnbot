@@ -40,19 +40,19 @@ def on_chat_message(msg):
                         taxt = taxt.split(config.getPower())[1]
                         taxt = taxt.upper()
                         bot.sendMessage("-1001123977184",taxt)
-                if(msg["text"]=="/help"):
+                if(msg["text"]=="/help@reviubot"):
                         bot.sendMessage(chat_id,"❔ Mi hanno aggiornato raga, ora il tasso euro dollaro funge perfettamente, e ho dei bottoni stupe.")
-                if(msg["text"]=="/reviu"):
+                if(msg["text"]=="/reviu@reviubot"):
                         bot.sendMessage(chat_id,"🆘 SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
-		if(msg["text"]=="/robaDa1"):
+		if(msg["text"]=="/robadauno@reviubot"):
                         bot.sendMessage(chat_id,"1️⃣ SONO PRESENTI ROBE DA 1 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
-		if(msg["text"]=="/robaDa2"):
+		if(msg["text"]=="/robadadue@reviubot"):
                         bot.sendMessage(chat_id,"2️⃣ SONO PRESENTI ROBE DA 2 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
-		if(msg["text"]=="/taskUO"):
+		if(msg["text"]=="/taskuo@reviubot"):
                         bot.sendMessage(chat_id,"🔞 SONO PRESENTI UPSETTING/OFFENSIVE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
-		if(msg["text"]=="/images"):
+		if(msg["text"]=="/images@reviubot"):
                         bot.sendMessage(chat_id,"🌄 SONO PRESENTI IMAGE BELLISSIME \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
-		if(msg["text"]=="/valuta"):
+		if(msg["text"]=="/valuta@reviubot"):
 			bot.sendMessage(chat_id,"💸 Attualmente, 1 dollaro = "+str("%0.2f" % dollar_to_eur)+" euro.\nPer PayPal invece, da bravo monellone, \n1 dollaro = "+str("%0.2f" % (dollar_to_eur-(dollar_to_eur*2.5)/100))+" euro.")
                         
 
