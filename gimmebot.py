@@ -41,7 +41,7 @@ def on_chat_message(msg):
                         taxt = taxt.upper()
                         bot.sendMessage("-1001123977184",taxt)
                 if(msg["text"]=="/help@reviubot"):
-                        bot.sendMessage(chat_id,"❔ Mi hanno aggiornato raga, ora il tasso euro dollaro funge perfettamente, e ho dei bottoni stupe.")
+                        bot.sendMessage(chat_id,"❔ Mi hanno aggiornato raga, ora il tasso euro dollaro funge di nuovo, non ho più quei bottoni brutti.")
                 if(msg["text"]=="/reviu@reviubot"):
                         bot.sendMessage(chat_id,"🆘 SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
 		if(msg["text"]=="/robadauno@reviubot"):
