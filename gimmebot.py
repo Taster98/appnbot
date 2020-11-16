@@ -21,12 +21,15 @@ def on_chat_message(msg):
         # Ricevo il json e estraggo in particolare la conversione DOLLAR/EUR, che è quella che mi serve
         response = requests.get(url)
         cambio = response.json()
-        dollar_to_eur = cambio["conversion_rates"]["EUR"]
-        dollar_to_eur = float(dollar_to_eur)
+       # dollar_to_eur = cambio["conversion_rates"]["EUR"]
+        #dollar_to_eur = float(dollar_to_eur)
+	dollar_to_eur = 0.85
         content_type, chat_type, chat_id = telepot.glance(msg)
         if content_type == 'text':
                 #In questo If schifoso aggiungo le parole chiave a cui il bot deve interagire
                 if(msg["text"].startswith("!")):
+			if("rosett" in msg["text"]):
+				bot.sendPhoto(chat_id, "http://luiggi.altervista.org/pane.jpg")
                         txtt = msg["text"]
                         txtt = txtt.split('!')[1]
                         lun = len(txtt)
@@ -34,7 +37,7 @@ def on_chat_message(msg):
                                 lun = 128
 
                         txtt = (txtt[0:lun]).upper()
-                        bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa")
+                        bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
                 if(msg["text"].startswith(config.getPower())):
                         taxt = msg["text"]
                         taxt = taxt.split(config.getPower())[1]
@@ -43,15 +46,15 @@ def on_chat_message(msg):
                 if(msg["text"]=="/help@reviubot"):
                         bot.sendMessage(chat_id,"❔ Mi hanno aggiornato raga, ora il tasso euro dollaro funge di nuovo, non ho più quei bottoni brutti.")
                 if(msg["text"]=="/reviu@reviubot"):
-                        bot.sendMessage(chat_id,"🆘 SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa")
+                        bot.sendMessage(chat_id,"🆘 SONO PRESENTI REVIU' \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
 		if(msg["text"]=="/robadauno@reviubot"):
-                        bot.sendMessage(chat_id,"1️⃣ SONO PRESENTI ROBE DA 1 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3")
+                        bot.sendMessage(chat_id,"1️⃣ SONO PRESENTI ROBE DA 1 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
 		if(msg["text"]=="/robadadue@reviubot"):
-                        bot.sendMessage(chat_id,"2️⃣ SONO PRESENTI ROBE DA 2 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa")
+                        bot.sendMessage(chat_id,"2️⃣ SONO PRESENTI ROBE DA 2 BRUTTE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
 		if(msg["text"]=="/taskuo@reviubot"):
-                        bot.sendMessage(chat_id,"🔞 SONO PRESENTI UPSETTING/OFFENSIVE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa")
+                        bot.sendMessage(chat_id,"🔞 SONO PRESENTI UPSETTING/OFFENSIVE \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
 		if(msg["text"]=="/images@reviubot"):
-                        bot.sendMessage(chat_id,"🌄 SONO PRESENTI IMAGE BELLISSIME \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa")
+                        bot.sendMessage(chat_id,"🌄 SONO PRESENTI IMAGE BELLISSIME \n\n@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @DavideCoccomini @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795")
 		if(msg["text"]=="/valuta@reviubot"):
 			bot.sendMessage(chat_id,"💸 Attualmente, 1 dollaro = "+str("%0.2f" % dollar_to_eur)+" euro.\nPer PayPal invece, da bravo monellone, \n1 dollaro = "+str("%0.2f" % (dollar_to_eur-(dollar_to_eur*2.5)/100))+" euro.")
                         
