@@ -31,7 +31,7 @@ def on_chat_message(msg):
 	FINE SCRIPT
 	'''
 	# Contenitore dei tag
-	alltags = "@Jack_96 @gotoxy @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795 @Nallen1 @Erretr @Marty_na @supertramp88 @Gianmi17 @RealPuPpEt @The_Dude_82 @valebes"
+	alltags = "@Jack_96 @gotoxy @giuggi_lu @totina82 @Sopralapanca @Daniloat94 @niryasodd @sempronio18 @Fljku @Flank71 @fedabooks @CtrlAltCanc7 @Giuseppe09999 @claramant @Gojio @phasenite @testadalgh3 @Daxee @mhptsa @Davide5795 @Nallen1 @Erretr @Marty_na @supertramp88 @Gianmi17 @RealPuPpEt @The_Dude_82 @valebes"
 	# Ricevo il json e estraggo in particolare la conversione DOLLAR/EUR, che è quella che mi serve
 	#response = requests.get(url)
 	#cambio = response.json()
