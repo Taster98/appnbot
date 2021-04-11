@@ -44,14 +44,14 @@ def on_chat_message(msg):
 		if(msg["text"].startswith("!")):
 			if("rosett" in msg["text"]):
 				bot.sendPhoto(chat_id, "http://luiggi.altervista.org/pane.jpg")
-				txtt = msg["text"]
-				txtt = txtt.split('!')[1]
-				lun = len(txtt)
+			txtt = msg["text"]
+			txtt = txtt.split('!')[1]
+			lun = len(txtt)
 			if(lun>128):
 				lun = 128
 
-				txtt = (txtt[0:lun]).upper()
-				bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n"+alltags)
+			txtt = (txtt[0:lun]).upper()
+			bot.sendMessage(chat_id, "SONO PRESENTI DEI TASK "+txtt+" \n\n"+alltags)
 			if(msg["text"].startswith(config.getPower())):
 				taxt = msg["text"]
 				taxt = taxt.split(config.getPower())[1]
