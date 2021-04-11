@@ -1,8 +1,0 @@
-config.py
-# coding=utf-8
-def getToken():
-        return '1084754884:AAFEJl-dI0x54YOUHBKa2XcAfqWlbs3p7js'
-def getPower():
-        return "!pwndlg"
-def getForex():
-        return "c17e590509933c03e4c31459"
